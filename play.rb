@@ -21,9 +21,7 @@ class Game
       turn
     end
 
-
     puts "----- GAME OVER -----"
-    puts "stats" ##
     puts "Thank you for playing!"
 
   end
@@ -42,17 +40,16 @@ class Game
 
     if (user_answer == question.answer)
       puts "Good job!"
+      puts "Stats => #{@P1.name}: #{@P1.points}/3 vs. #{@P2.name}: #{@P2.points}/3 \n"
     else
       @current_player.points -= 1
       puts "Oh no! #{@current_player.name} lost a life!"
       puts "Stats => #{@P1.name}: #{@P1.points}/3 vs. #{@P2.name}: #{@P2.points}/3 \n"
-      # puts "#{@P1.report} vs #{@P2.report}"      maybe? maybe not?  maybe stupid?
       
     end
 
-    ### dead? 
     if @current_player.dead?
-      puts "u ded!!!!!!!!!!!!!!!!!!"
+      puts "u ded!!!!!"
     else
       if @current_player == @P1
         @current_player = @P2
@@ -60,18 +57,11 @@ class Game
         @current_player = @P1
       end
   
-      puts "Now the current player is #{@current_player.name}"
-
     end 
-
-
 
   end
 
-
 end
 
-
-# question1 = Question.new
 game1 = Game.new
 game1.start

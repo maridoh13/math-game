@@ -7,10 +7,6 @@ class Player
     @points = 3
   end
 
-  def lose_life
-    # ????
-  end
-
   def dead?
     if @points == 0
       return true
