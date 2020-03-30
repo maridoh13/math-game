@@ -10,11 +10,17 @@ class Game
     puts "A new game has begun!"
   end
 
+  def gameover?
+    @P1.dead? || @P2.dead?
+  end
+
   def start
     puts "#{@current_player.name} will go first."
-    while (@P1.points != @P1.dead? || @P2.points != @P2.dead?)
+
+    while (!gameover?)
       turn
     end
+
 
     puts "----- GAME OVER -----"
     puts "stats" ##
@@ -46,27 +52,21 @@ class Game
 
     ### dead? 
     if @current_player.dead?
-      puts "u ded"
+      puts "u ded!!!!!!!!!!!!!!!!!!"
+    else
+      if @current_player == @P1
+        @current_player = @P2
+      else
+        @current_player = @P1
+      end
+  
+      puts "Now the current player is #{@current_player.name}"
+
     end 
 
 
 
-    # @current_player = ########  not working
-    if @current_player == @P1
-      @current_player = @P2
-    else
-      @current_player = @P1
-    end
-
-    ### Delete later!
-    puts "Now the current player is #{@current_player.name}"
-
-
   end
-
-  
-
-
 
 
 end
